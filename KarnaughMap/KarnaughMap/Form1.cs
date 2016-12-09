@@ -27,19 +27,38 @@ namespace KarnaughMap
             KarnaughMap map = new KarnaughMap(builder);
            
             KarnaughMapGrouping grouping = new KarnaughMapGrouping(map);
-            string variablesColName = "";
-            for (int i = 1;i< builder.VariableList.Count();i++) variablesColName += builder.VariableList[i].Variable.ToString();
-            variablesColName += " / " + builder.VariableList[0];
-            MainTable.Columns["variables"].HeaderText = variablesColName;
-            MainTable.Rows.Clear();
+            int columnVarCount = map.Builder.VariableList.Count()/2;
+            int rowVarCount = map.Builder.VariableList.Count() - columnVarCount;
+            List<KarnaughVariable> columnVars = new List<KarnaughVariable>();
             List<KarnaughVariable> rowVars = new List<KarnaughVariable>();
-            for (int i = 1; i < builder.VariableList.Count(); i++) rowVars.Add(builder.VariableList[i]);
+            for (int i = 0; i < columnVarCount; i++) columnVars.Add(map.Builder.VariableList[i]);
+            for (int i = columnVarCount; i < map.Builder.VariableList.Count(); i++) rowVars.Add(map.Builder.VariableList[i]);
+            MainTable.Columns.Clear();
+            MainTable.Rows.Clear();
+            MainTable.Columns.Add("mid", rowVars.ToStringVar() + "/" + columnVars.ToStringVar());
+            List<string> columnBits = grouping.SortBitsByOneBitDifference(grouping.CreateBitmap(columnVars));
             List<string> rowBits = grouping.SortBitsByOneBitDifference(grouping.CreateBitmap(rowVars));
+            foreach (string c in columnBits) MainTable.Columns.Add(c, c);
             foreach (string bit in rowBits)
             {
-                MainTable.Rows.Add(bit, map.BitMap["0" + bit], map.BitMap["1" + bit]);
+                int rowid = MainTable.Rows.Add();
+                DataGridViewRow newrow = MainTable.Rows[rowid];
+                newrow.Cells["mid"].Value = bit;
+                foreach (string c in columnBits)
+                {
+                    newrow.Cells[c].Value = (map.BitMap[c + bit]) ? "1" : "0";
+                }
+            }
+
+
+            List<string> listboxBits = grouping.SortBitsByOneBitDifference(grouping.CreateBitmap(builder.VariableList));
+            listBox1.Items.Add(builder.VariableList.ToStringVar());
+            foreach(string bit in listboxBits)
+            {
+                string s = (map.BitMap[bit] == true) ? "1" : "0";
+                listBox1.Items.Add(bit + " = " + s);
             }
         }
-
+        
     }
 }

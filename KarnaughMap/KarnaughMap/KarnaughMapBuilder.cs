@@ -31,6 +31,10 @@ namespace KarnaughMap
                         this.FixedStatement[this.FixedStatement.Count() - 1][this.FixedStatement[this.FixedStatement.Count() - 1].Count() - 1].isNotReverse = false;
                         break;
                     case ' ':
+                    case '.':
+                    case '*':
+                    case '-':
+                    case ',':
                         continue;
                     default:
                         AddVariableToList(c);

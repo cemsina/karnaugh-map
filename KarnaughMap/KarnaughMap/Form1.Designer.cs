@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.MainTable = new System.Windows.Forms.DataGridView();
             this.variables = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.First0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +43,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(189, 19);
+            this.button1.Location = new System.Drawing.Point(511, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(61, 20);
             this.button1.TabIndex = 0;
@@ -56,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 19);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 20);
+            this.textBox1.Size = new System.Drawing.Size(493, 20);
             this.textBox1.TabIndex = 1;
             // 
             // groupBox1
@@ -66,10 +67,19 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 47);
+            this.groupBox1.Size = new System.Drawing.Size(732, 47);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enter a statement";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(549, 47);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(183, 432);
+            this.listBox1.TabIndex = 5;
             // 
             // MainTable
             // 
@@ -78,11 +88,11 @@
             this.variables,
             this.First0,
             this.First1});
-            this.MainTable.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MainTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTable.Location = new System.Drawing.Point(0, 47);
             this.MainTable.Name = "MainTable";
-            this.MainTable.Size = new System.Drawing.Size(343, 432);
-            this.MainTable.TabIndex = 4;
+            this.MainTable.Size = new System.Drawing.Size(549, 432);
+            this.MainTable.TabIndex = 6;
             // 
             // variables
             // 
@@ -103,8 +113,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 479);
+            this.ClientSize = new System.Drawing.Size(732, 479);
             this.Controls.Add(this.MainTable);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Karnaugh Map Solver @ cemsina.com";
@@ -121,6 +132,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView MainTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn variables;
         private System.Windows.Forms.DataGridViewTextBoxColumn First0;

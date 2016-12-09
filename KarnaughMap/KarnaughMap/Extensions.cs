@@ -24,6 +24,11 @@ namespace KarnaughMap
             }
             return rtrn;
         }
-
+        public static string ToStringVar(this List<KarnaughVariable> list)
+        {
+            string rtrn = "";
+            foreach (KarnaughVariable k in list) rtrn += k.ToString();
+            return rtrn;
+        }
     }
 }
