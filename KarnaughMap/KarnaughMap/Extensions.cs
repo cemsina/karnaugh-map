@@ -13,5 +13,17 @@ namespace KarnaughMap
             foreach (KarnaughVariable k in list) if (k.Variable == variable) return k;
             return null;
         }
+        public static string ToTruthTableBits(this List<KarnaughVariable> list, List<KarnaughVariable> variableQueue)
+        {
+            if (list.Count() != variableQueue.Count()) return null;
+            string rtrn = "";
+            foreach(KarnaughVariable v in variableQueue)
+            {
+                KarnaughVariable l = list.GetVariableByName(v.Variable);
+                rtrn += (l.isNotReverse == true) ? "1" : "0";
+            }
+            return rtrn;
+        }
+
     }
 }

@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="KarnaughMap.cs" />
     <Compile Include="KarnaughMapBuilder.cs" />
+    <Compile Include="KarnaughMapGrouping.cs" />
     <Compile Include="KarnaughVariable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

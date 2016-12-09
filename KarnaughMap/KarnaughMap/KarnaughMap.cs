@@ -47,5 +47,16 @@ namespace KarnaughMap
                 }
             }
         }
+        public List<string> GetTrueBits()
+        {
+            List<string> rtrn = new List<string>();
+            foreach(string bit in this.BitMap.Keys.ToList())
+            {
+                if (this.BitMap[bit] == true) rtrn.Add(bit);
+            }
+            return rtrn;
+        }
+        
+        
     }
 }
